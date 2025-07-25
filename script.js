@@ -1,22 +1,24 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("alpine", () => ({
 
+        loading: false,
         sidebar: false,
+        model: false,
         benefits: [
             {
                 title: "Negocie melhores condições com seus fornecedores pagando à vista",
                 description: "Com a antecipação de recebíveis você troca taxa por desconto na compra com seus fornecedores",
-                image: "images/1.jpg",
+                image: "images/blog/1.jpg",
             },
             {
                 title: "Venda a prazo e receba a vista",
                 description: "Com a antecipação você troca o prazo por capital imediato e sem riscos, permitindo o cumprimento das obrigações financeiras da sua empresa",
-                image: "images/2.jpg",
+                image: "images/blog/2.jpg",
             },
             {
                 title: "Sem necessidade de endividamento",
                 description: "A antecipação de recebíveis permite você capitalizar a sua empresa com um recurso que já é seu, sem gerar endividamento, reduzindo a dependência dos bancos",
-                image: "images/3.jpg",
+                image: "images/blog/3.jpg",
             },
         ],
         solutions: [
@@ -111,6 +113,23 @@ document.addEventListener("alpine:init", () => {
                 `
             },
         ],
+
+        async submitForm(event) {
+            this.loading = true
+            const form = event.target
+            const data = new FormData(form)
+
+            try {
+                await fetch("https://script.google.com/macros/s/AKfycbytCYREJVHyg-R3ByoX-yeKoYFnPNiLShAOjBwFdgsFLNFWRQQsMIqrrTRQNbc6cdu-/exec", {
+                    method: "POST",
+                    body: data,
+                })
+            } catch (error) {
+                alert("Ocorreu um erro ao enviar. Tente novamente.")
+            } finally {
+                this.loading = false
+            }
+        },
 
     }))
 })
