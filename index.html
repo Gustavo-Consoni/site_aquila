@@ -1,262 +1,402 @@
 <!DOCTYPE html>
 <html class="antialiased scroll-smooth" lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <title>Aquila Securitizadora</title>
-    <!-- Tailwindcss -->
-    <link href="src/output.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
-    <!-- AlpineJS -->
-    <script defer src="script.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-    <style>
-        * {
-            font-family: "Inter", sans-serif;
-        }
-        [x-cloak] {
-            display: none !important;
-        }
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/images/favicon.png" type="image/png">
+        <title>Aquila Securitizadora</title>
+        <!-- Tailwindcss -->
+        <link href="src/output.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+        <!-- AlpineJS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15/dist/cdn.min.js"></script>
+        <style>
+            * {
+                font-family: "Inter", sans-serif;
             }
-            100% {
-                transform: translateX(-100%);
+            [x-cloak] {
+                display: none !important;
             }
-        }
-        .animate-marquee {
-            animation: marquee 20s linear infinite;
-        }
-    </style>
-</head>
-<body x-data="alpine">
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            .animate-marquee {
+                animation: marquee 20s linear infinite;
+            }
+        </style>
+    </head>
+    <body x-data="alpine">
 
-<div class="relative">
-    <video class="absolute size-full object-center object-cover" src="images/capa.mp4" autoplay loop muted playsinline></video>
-    <div class="absolute bg-black/50 size-full"></div>
-    <div class="z-10 mx-auto max-xl:px-6 max-w-7xl">
-        <nav class="flex items-center w-full h-24 select-none" x-data="{ showMenu: false }">
-            <div class="relative flex flex-wrap justify-between md:justify-between items-start md:items-center mx-auto w-full md:h-24 font-medium">
-                <img class="w-32" src="images/logo.png" loading="lazy">
-                <div class="hidden top-0 left-0 z-40 fixed md:relative md:flex items-center bg-gray-900 md:bg-transparent bg-opacity-50 p-3 md:p-0 w-full md:w-auto h-full text-sm" :class="{'flex': showMenu, 'hidden': !showMenu }">
-                    <div class="md:relative md:flex md:flex-row flex-col items-center bg-black md:bg-transparent bg-opacity-50 backdrop-blur-lg p-3 md:p-0 rounded-lg md:rounded-none w-full h-full md:h-auto overflow-hidden md:overflow-auto select-none">
-                        <div class="flex md:flex-row flex-col justify-end items-center md:py-0 pt-2 w-full md:w-full h-full">
-                            <a href="https://iwbarecebiveis.wba.com.br" class="bg-white px-4 py-2.5 rounded-sm md:rounded-full w-full font-medium text-gray-900 text-center">Portal do Cedente</a>
+    <div class="relative">
+        <video class="absolute size-full object-center object-cover" src="/images/capa.mp4" autoplay loop muted playsinline></video>
+        <div class="absolute bg-black/50 size-full"></div>
+        <div class="z-10 mx-auto max-xl:px-6 max-w-7xl">
+            <nav class="flex items-center w-full h-24 select-none" x-data="{ showMenu: false }">
+                <div class="relative flex flex-wrap justify-between md:justify-between items-start md:items-center mx-auto w-full md:h-24 font-medium">
+                    <img class="w-32" src="/images/logo.png" loading="lazy">
+                    <div class="hidden top-0 left-0 z-40 fixed md:relative md:flex items-center p-3 md:p-0 w-full md:w-auto h-full text-sm" :class="{'flex': showMenu, 'hidden': !showMenu }">
+                        <div class="md:relative md:flex md:flex-row flex-col items-center gap-4 p-3 md:p-0 rounded-lg md:rounded-none w-full h-full md:h-auto overflow-hidden md:overflow-auto select-none">
+                            <div class="flex md:flex-row flex-col justify-end items-center">
+                                <a href="/debenturista.html" class="bg-white px-4 py-2.5 rounded-sm md:rounded-full w-full font-medium text-gray-900 text-center">Comunicação ao Debenturista</a>
+                            </div>
+                            <div class="flex md:flex-row flex-col justify-end items-center">
+                                <a href="https://iwbarecebiveis.wba.com.br" class="bg-white px-4 py-2.5 rounded-sm md:rounded-full w-full font-medium text-gray-900 text-center">Portal do Cedente</a>
+                            </div>
                         </div>
                     </div>
+                    <div @click="showMenu = !showMenu" class="md:hidden right-0 z-50 absolute flex flex-col items-end hover:bg-gray-200/10 hover:bg-opacity-10 rounded-full w-10 h-10 translate-y-1.5 cursor-pointer" :class="{ 'text-gray-400': showMenu, 'text-gray-100': !showMenu }">
+                        <svg class="w-6 h-6" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-6 h-6" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
                 </div>
-                <div @click="showMenu = !showMenu" class="md:hidden right-0 z-50 absolute flex flex-col items-end hover:bg-gray-200/10 hover:bg-opacity-10 rounded-full w-10 h-10 translate-y-1.5 cursor-pointer" :class="{ 'text-gray-400': showMenu, 'text-gray-100': !showMenu }">
-                    <svg class="w-6 h-6" x-show="!showMenu" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" x-cloak>
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                    <svg class="w-6 h-6" x-show="showMenu" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" x-cloak>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </div>
+            </nav>
+            <div class="relative mx-auto py-32 md:text-center container">
+                <p class="mx-auto max-w-6xl font-bold text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-none tracking-tight">Transforme suas vendas a prazo em capital imediato</p>
+                <p class="mx-auto mt-6 md:mt-12 md:max-w-2xl text-gray-200 text-sm md:text-lg xl:text-xl text-left md:text-center sm:">Nossas soluções transformam seus recebíveis em liquidez imediata, com agilidade, transparência e atendimento humanizado</p>
+                <form class="relative flex items-center mx-auto mt-12 rounded-md md:max-w-md overflow-hidden text-left md:text-center" @submit.prevent="submitForm(event)">
+                    <input type="email" name="email" placeholder="Seu melhor e-mail" class="bg-white px-6 py-2 focus:outline-none w-full h-12 font-medium text-gray-800">
+                    <span class="block top-0 right-0 relative">
+                        <button type="submit" class="bg-green-900 hover:bg-green-800 px-8 w-32 h-12 font-bold text-white leading-6 duration-300 cursor-pointer">Enviar</button>
+                    </span>
+                </form>
             </div>
-        </nav>
-        <div class="relative mx-auto py-32 md:text-center container">
-            <p class="mx-auto max-w-6xl font-bold text-white text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-none tracking-tight">Transforme suas vendas a prazo em capital imediato</p>
-            <p class="mx-auto mt-6 md:mt-12 md:max-w-2xl text-gray-200 text-sm md:text-lg xl:text-xl text-left md:text-center sm:">Nossas soluções transformam seus recebíveis em liquidez imediata, com agilidade, transparência e atendimento humanizado</p>
-            <form class="relative flex items-center mx-auto mt-12 rounded-md md:max-w-md overflow-hidden text-left md:text-center" @submit.prevent="submitForm(event)">
-                <input type="email" name="email" placeholder="Seu melhor e-mail" class="bg-white px-6 py-2 focus:outline-none w-full h-12 font-medium text-gray-800">
-                <span class="block top-0 right-0 relative">
-                    <button type="submit" class="bg-green-900 hover:bg-green-800 px-8 w-32 h-12 font-bold text-white leading-6 duration-300 cursor-pointer">Enviar</button>
-                </span>
-            </form>
         </div>
     </div>
-</div>
 
-<div class="relative mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl">
-    <div class="mb-20 sm:text-center">
-        <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Benefícios da Antecipação de Recebíveis com a Aquila</p>
-        <p class="mx-auto lg:w-3/4 xl:w-2/4 text-gray-500 leading-relaxed">Pague fornecedores à vista, melhore seu poder de negociação e fortaleça o fluxo de caixa — tudo sem novos empréstimos e endividamento</p>
-    </div>
-    <div class="gap-7 grid grid-cols-12 col-span-12 mt-10">
-        <template x-for="(benefit, index) in benefits" :key="index">
-            <div class="flex flex-col items-start col-span-12 md:col-span-6 lg:col-span-4 shadow-sm rounded-xl overflow-hidden">
-                <img class="shadow-sm w-full max-h-60 object-cover" :src="benefit.image" loading="lazy">
-                <div class="flex flex-col items-start bg-white px-6 py-8 rounded-b-2xl">
-                    <p class="font-medium sm:text-lg md:text-xl" x-text="benefit.title"></p>
-                    <p class="mt-2 text-gray-500 text-sm" x-text="benefit.description"></p>
-                </div>
-            </div>
-        </template>
-    </div>
-</div>
-
-<div class="bg-gray-100 max-xl:px-6 py-16 sm:py-32">
-    <div class="mx-auto max-w-5xl">
+    <div class="relative mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl">
         <div class="mb-20 sm:text-center">
-            <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Nossas Soluções para Sua Empresa</p>
+            <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Benefícios da Antecipação de Recebíveis com a Aquila</p>
+            <p class="mx-auto lg:w-3/4 xl:w-2/4 text-gray-500 leading-relaxed">Pague fornecedores à vista, melhore seu poder de negociação e fortaleça o fluxo de caixa — tudo sem novos empréstimos e endividamento</p>
         </div>
-        <div class="gap-8 grid grid-cols-4 sm:grid-cols-8 mt-10 sm:px-8 xl:px-0">
-            <template x-for="(solution, index) in solutions" :key="index">
-                <div class="relative flex flex-col justify-between items-center space-y-4 col-span-4 bg-white px-8 py-12 rounded-lg overflow-hidden">
-                    <div class="bg-green-900 p-3 rounded-full text-white">
-                        <span x-html="solution.svg"></span>
+        <div class="gap-7 grid grid-cols-12 col-span-12 mt-10">
+            <template x-for="(benefit, index) in benefits" :key="index">
+                <div class="flex flex-col items-start col-span-12 md:col-span-6 lg:col-span-4 shadow-sm rounded-xl overflow-hidden">
+                    <img class="shadow-sm w-full max-h-60 object-cover" :src="benefit.image" loading="lazy">
+                    <div class="flex flex-col items-start bg-white px-6 py-8 rounded-b-2xl">
+                        <p class="font-medium sm:text-lg md:text-xl" x-text="benefit.title"></p>
+                        <p class="mt-2 text-gray-500 text-sm" x-text="benefit.description"></p>
                     </div>
-                    <p class="font-medium text-gray-700 text-xl" x-text="solution.title"></p>
-                    <p class="text-gray-500 text-center" x-text="solution.description"></p>
                 </div>
             </template>
         </div>
     </div>
-</div>
 
-<div class="container-block relative space-y-8 bg-green-950 pt-16 pb-12 w-full">
-    <p class="font-bold text-white text-xl text-center">Nossos Parceiros</p>
-    <div class="relative bg-green-950 mx-auto w-full max-w-7xl overflow-hidden text-white sm:text-xs md:text-sm lg:text-base text-lg xl:text-xl 2xl:text-2xl italic uppercase tracking-wide">
-        <div class="left-0 z-20 absolute bg-gradient-to-r from-green-950 to-transparent w-40 h-full"></div>
-        <div class="right-0 z-20 absolute bg-gradient-to-l from-green-950 to-transparent w-40 h-full"></div>
-        <div x-ref="content" class="flex animate-marquee">
-            <div x-ref="item" class="flex flex-shrink-0 justify-around items-center space-x-12 w-full text-white">
-                <img class="w-32" src="images/carousel/1.png" loading="lazy">
-                <img class="w-32" src="images/carousel/2.png" loading="lazy">
-                <img class="w-32" src="images/carousel/3.png" loading="lazy">
-                <img class="w-32" src="images/carousel/4.png" loading="lazy">
-                <img class="w-32" src="images/carousel/5.png" loading="lazy">
-                <img class="w-32" src="images/carousel/6.png" loading="lazy">
-                <img class="w-32" src="images/carousel/1.png" loading="lazy">
-                <img class="w-32" src="images/carousel/2.png" loading="lazy">
-                <img class="w-32" src="images/carousel/3.png" loading="lazy">
-                <img class="w-32" src="images/carousel/4.png" loading="lazy">
-                <img class="w-32" src="images/carousel/5.png" loading="lazy">
-                <img class="w-32" src="images/carousel/6.png" loading="lazy">
-                <img class="w-32" src="images/carousel/1.png" loading="lazy">
-                <img class="w-32" src="images/carousel/2.png" loading="lazy">
-                <img class="w-32" src="images/carousel/3.png" loading="lazy">
-                <img class="w-32" src="images/carousel/4.png" loading="lazy">
-                <img class="w-32" src="images/carousel/5.png" loading="lazy">
-                <img class="w-32" src="images/carousel/6.png" loading="lazy">
+    <div class="bg-gray-100 max-xl:px-6 py-16 sm:py-32">
+        <div class="mx-auto max-w-5xl">
+            <div class="mb-20 sm:text-center">
+                <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Nossas Soluções para Sua Empresa</p>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl">
-    <div class="mb-20 sm:text-center">
-        <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Como Funciona o Processo de Antecipação dos seus Recebíveis</p>
-        <p class="mx-auto lg:w-3/4 xl:w-2/4 text-gray-500 leading-relaxed">Nossa equipe analisa cada operação de forma rápida e libera os recursos com as melhores taxas do mercado — tudo para impulsionar o crescimento do seu negócio</p>
-    </div>
-    <div class="flex flex-wrap items-center text-gray-500">
-        <div class="md:py-6 md:pr-10 md:w-1/2 lg:w-2/5">
-            <template x-for="(step, index) in steps" :key="index">
-                <div class="relative flex pb-12" :class="{ 'pb-12': index < steps.length - 1 }">
-                    <template x-if="index < steps.length - 1">
-                        <div class="absolute inset-0 flex justify-center items-center w-10 h-full">
-                            <div class="bg-gray-200 w-1 h-full pointer-events-none"></div>
+            <div class="gap-8 grid grid-cols-4 sm:grid-cols-8 mt-10 sm:px-8 xl:px-0">
+                <template x-for="(solution, index) in solutions" :key="index">
+                    <div class="relative flex flex-col justify-between items-center space-y-4 col-span-4 bg-white px-8 py-12 rounded-lg overflow-hidden">
+                        <div class="bg-green-900 p-3 rounded-full text-white">
+                            <span x-html="solution.svg"></span>
                         </div>
-                    </template>
-                    <div class="inline-flex z-10 relative flex-shrink-0 justify-center items-center bg-green-900 rounded-full size-12 text-white">
-                        <span x-html="step.svg"></span>
+                        <p class="font-medium text-gray-700 text-xl" x-text="solution.title"></p>
+                        <p class="text-gray-500 text-center" x-text="solution.description"></p>
                     </div>
-                    <div class="flex-grow pl-4">
-                        <p class="mb-1 font-medium text-gray-900 text-sm tracking-wider" x-text="'Passo ' + (index + 1)"></p>
-                        <p class="leading-relaxed" x-text="step.description"></p>
-                    </div>
-                </div>
-            </template>
-        </div>
-        <img class="mt-12 md:mt-0 rounded-lg md:w-1/2 lg:w-3/5 object-center object-cover" src="images/capa.jpg" loading="lazy">
-    </div>
-</div>
-
-<div class="bg-gray-100 max-xl:px-6 py-16 sm:py-32">
-    <div class="mx-auto max-w-7xl">
-        <div class="space-y-4 mb-20 text-center">
-            <p class="font-medium text-gray-900 text-2xl sm:text-3xl">Crédito para Micro, Pequenas, Médias e Grandes Empresas</p>
-            <p class="mx-auto lg:w-3/4 text-gray-500 leading-relaxed">Na Aquila Securitizadora, sua empresa tem portas abertas ao crédito, independente do porte</p>
-            <p class="font-medium text-green-700 text-sm uppercase">Crédito Sujeito a Análise</p>
-        </div>
-        <div class="flex max-sm:flex-col space-y-6 sm:space-y-0">
-            <template x-for="(credit, index) in credits" :key="index">
-                <div class="flex flex-col items-center gap-4 p-4 text-center">
-                    <div class="flex justify-center items-center bg-green-900 rounded-full size-20">
-                        <span class="size-10 text-white" x-html="credit.svg"></span>
-                    </div>
-                    <p class="font-medium text-gray-900 text-lg" x-text="credit.title"></p>
-                    <p class="text-gray-500 leading-relaxed" x-text="credit.description"></p>
-                </div>
-            </template>
-        </div>
-    </div>
-</div>
-
-<div class="relative flex flex-wrap sm:flex-nowrap mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl text-gray-500" id="contato">
-    <div class="relative flex justify-start items-end bg-gray-300 sm:mr-10 p-10 rounded-lg md:w-1/2 lg:w-2/3 overflow-hidden">
-        <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%25&height=600&hl=pt-BR&q=Rua+J%C3%BAlio+Mesquita,+526,+Edif%C3%ADcio+Elvira,+Sala+35&ie=UTF8&t=&z=14&iwloc=B&output=embed"></iframe>
-        <div class="relative flex flex-wrap bg-white shadow-md py-6 rounded-sm">
-            <div class="px-6 lg:w-1/2">
-                <p class="font-semibold text-gray-900 text-xs tracking-widest">ENDEREÇO</p>
-                <p class="mt-1">Rua Júlio Mesquita, 526, Edifício Elvira, Sala 35</p>
-            </div>
-            <div class="mt-4 lg:mt-0 px-6 lg:w-1/2">
-                <p class="font-semibold text-gray-900 text-xs tracking-widest">EMAIL</p>
-                <a class="text-indigo-500 leading-relaxed">adm@aquilasec.com.br</a>
-                <p class="mt-4 font-semibold text-gray-900 text-xs tracking-widest">TELEFONE</p>
-                <p class="leading-relaxed">(19) 99899-8995</p>
+                </template>
             </div>
         </div>
     </div>
-    <form class="flex flex-col bg-white mt-8 md:mt-0 md:ml-auto md:py-8 w-full md:w-1/2 lg:w-1/3" @submit.prevent="submitForm(event)">
-        <p class="mb-1 font-medium text-gray-900 text-lg">Queremos te conhecer</p>
-        <p class="mb-5 text-gray-500 leading-relaxed">Entre em contato conosco para antecipar seus recebíveis ou saber mais a respeito</p>
-        <div class="mb-4">
-            <label for="enterprise" class="text-gray-500 text-sm leading-7">Empresa</label>
-            <input type="text" id="enterprise" name="enterprise" required class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
-        </div>
-        <div class="mb-4">
-            <label for="email" class="text-gray-500 text-sm leading-7">Email</label>
-            <input type="email" id="email" name="email" class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
-        </div>
-        <div class="mb-4">
-            <label for="phone" class="text-gray-500 text-sm leading-7">Telefone</label>
-            <input type="text" id="phone" name="phone" class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
-        </div>
-        <div class="mb-4">
-            <label for="message" class="text-gray-500 text-sm leading-7">Mensagem</label>
-            <textarea id="message" name="message" maxlength="150" class="p-3 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full h-28 text-gray-700 leading-6 duration-300 resize-none"></textarea>
-        </div>
-        <button class="bg-green-900 hover:bg-green-800 py-2 rounded-sm font-medium text-white duration-300 cursor-pointer" type="submit">Enviar</button>
-    </form>
-</div>
 
-<div class="bg-gradient-to-br from-green-950 via-green-900 to-green-950 text-white">
-    <div class="flex max-sm:flex-col items-center gap-4 mx-auto max-xl:px-6 py-16 max-w-7xl">
-        <img class="w-32" src="images/logo.png" loading="lazy">
-        <p class="sm:py-2 sm:pl-4 sm:border-gray-200 sm:border-l-2 text-sm text-center">&copy; 2025 Aquila Securitizadora. Todos os direitos reservados</p>
-        <div class="flex items-center gap-4 sm:ml-auto">
-            <a href="https://api.whatsapp.com/send?phone=5519998998995" target="_blank">
-                <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z" fill="#e0e0e0"></path>
-                    </g>
-                </svg>
-            </a>
-            <a href="https://www.instagram.com/aquilasecuritizadora" target="_blank">
-                <svg class="size-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                </svg>
-            </a>
-            <a href="https://www.linkedin.com/company/aquilasecuritizadora" target="_blank">
-                <svg class="size-6" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" viewBox="0 0 24 24">
-                    <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                    <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                </svg>
-            </a>
+    <div class="container-block relative space-y-8 bg-green-950 pt-16 pb-12 w-full">
+        <p class="font-bold text-white text-xl text-center">Nossos Parceiros</p>
+        <div class="relative bg-green-950 mx-auto w-full max-w-7xl overflow-hidden text-white sm:text-xs md:text-sm lg:text-base text-lg xl:text-xl 2xl:text-2xl italic uppercase tracking-wide">
+            <div class="left-0 z-20 absolute bg-gradient-to-r from-green-950 to-transparent w-40 h-full"></div>
+            <div class="right-0 z-20 absolute bg-gradient-to-l from-green-950 to-transparent w-40 h-full"></div>
+            <div x-ref="content" class="flex animate-marquee">
+                <div x-ref="item" class="flex flex-shrink-0 justify-around items-center space-x-12 w-full text-white">
+                    <img class="w-32" src="/images/carousel/1.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/2.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/3.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/4.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/5.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/6.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/1.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/2.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/3.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/4.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/5.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/6.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/1.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/2.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/3.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/4.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/5.png" loading="lazy">
+                    <img class="w-32" src="/images/carousel/6.png" loading="lazy">
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-</body>
+    <div class="mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl">
+        <div class="mb-20 sm:text-center">
+            <p class="mb-4 font-medium text-gray-900 text-2xl sm:text-3xl">Como Funciona o Processo de Antecipação dos seus Recebíveis</p>
+            <p class="mx-auto lg:w-3/4 xl:w-2/4 text-gray-500 leading-relaxed">Nossa equipe analisa cada operação de forma rápida e libera os recursos com as melhores taxas do mercado — tudo para impulsionar o crescimento do seu negócio</p>
+        </div>
+        <div class="flex flex-wrap items-center text-gray-500">
+            <div class="md:py-6 md:pr-10 md:w-1/2 lg:w-2/5">
+                <template x-for="(step, index) in steps" :key="index">
+                    <div class="relative flex pb-12" :class="{ 'pb-12': index < steps.length - 1 }">
+                        <template x-if="index < steps.length - 1">
+                            <div class="absolute inset-0 flex justify-center items-center w-10 h-full">
+                                <div class="bg-gray-200 w-1 h-full pointer-events-none"></div>
+                            </div>
+                        </template>
+                        <div class="inline-flex z-10 relative flex-shrink-0 justify-center items-center bg-green-900 rounded-full size-12 text-white">
+                            <span x-html="step.svg"></span>
+                        </div>
+                        <div class="flex-grow pl-4">
+                            <p class="mb-1 font-medium text-gray-900 text-sm tracking-wider" x-text="'Passo ' + (index + 1)"></p>
+                            <p class="leading-relaxed" x-text="step.description"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <img class="mt-12 md:mt-0 rounded-lg md:w-1/2 lg:w-3/5 object-center object-cover" src="/images/capa.jpg" loading="lazy">
+        </div>
+    </div>
+
+    <div class="bg-gray-100 max-xl:px-6 py-16 sm:py-32">
+        <div class="mx-auto max-w-7xl">
+            <div class="space-y-4 mb-20 text-center">
+                <p class="font-medium text-gray-900 text-2xl sm:text-3xl">Crédito para Micro, Pequenas, Médias e Grandes Empresas</p>
+                <p class="mx-auto lg:w-3/4 text-gray-500 leading-relaxed">Na Aquila Securitizadora, sua empresa tem portas abertas ao crédito, independente do porte</p>
+                <p class="font-medium text-green-700 text-sm uppercase">Crédito Sujeito a Análise</p>
+            </div>
+            <div class="flex max-sm:flex-col space-y-6 sm:space-y-0">
+                <template x-for="(credit, index) in credits" :key="index">
+                    <div class="flex flex-col items-center gap-4 p-4 text-center">
+                        <div class="flex justify-center items-center bg-green-900 rounded-full size-20">
+                            <span class="size-10 text-white" x-html="credit.svg"></span>
+                        </div>
+                        <p class="font-medium text-gray-900 text-lg" x-text="credit.title"></p>
+                        <p class="text-gray-500 leading-relaxed" x-text="credit.description"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative flex flex-wrap sm:flex-nowrap mx-auto max-xl:px-6 py-16 sm:py-32 max-w-7xl text-gray-500" id="contato">
+        <div class="relative flex justify-start items-end bg-gray-300 sm:mr-10 p-10 rounded-lg md:w-1/2 lg:w-2/3 overflow-hidden">
+            <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%25&height=600&hl=pt-BR&q=Rua+J%C3%BAlio+Mesquita,+526,+Edif%C3%ADcio+Elvira,+Sala+35&ie=UTF8&t=&z=14&iwloc=B&output=embed"></iframe>
+            <div class="relative flex flex-wrap bg-white shadow-md py-6 rounded-sm">
+                <div class="px-6 lg:w-1/2">
+                    <p class="font-semibold text-gray-900 text-xs tracking-widest">ENDEREÇO</p>
+                    <p class="mt-1">Rua Júlio Mesquita, 526, Edifício Elvira, Sala 35</p>
+                </div>
+                <div class="mt-4 lg:mt-0 px-6 lg:w-1/2">
+                    <p class="font-semibold text-gray-900 text-xs tracking-widest">EMAIL</p>
+                    <a class="text-indigo-500 leading-relaxed">adm@aquilasec.com.br</a>
+                    <p class="mt-4 font-semibold text-gray-900 text-xs tracking-widest">TELEFONE</p>
+                    <p class="leading-relaxed">(19) 99899-8995</p>
+                </div>
+            </div>
+        </div>
+        <form class="flex flex-col bg-white mt-8 md:mt-0 md:ml-auto md:py-8 w-full md:w-1/2 lg:w-1/3" @submit.prevent="submitForm(event)">
+            <p class="mb-1 font-medium text-gray-900 text-lg">Queremos te conhecer</p>
+            <p class="mb-5 text-gray-500 leading-relaxed">Entre em contato conosco para antecipar seus recebíveis ou saber mais a respeito</p>
+            <div class="mb-4">
+                <label for="enterprise" class="text-gray-500 text-sm leading-7">Empresa</label>
+                <input type="text" id="enterprise" name="enterprise" required class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="text-gray-500 text-sm leading-7">Email</label>
+                <input type="email" id="email" name="email" class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="text-gray-500 text-sm leading-7">Telefone</label>
+                <input type="text" id="phone" name="phone" class="px-3 py-1 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full text-gray-700 leading-8 duration-300">
+            </div>
+            <div class="mb-4">
+                <label for="message" class="text-gray-500 text-sm leading-7">Mensagem</label>
+                <textarea id="message" name="message" maxlength="150" class="p-3 rounded-sm outline-none ring ring-gray-300 focus:ring-blue-500 w-full h-28 text-gray-700 leading-6 duration-300 resize-none"></textarea>
+            </div>
+            <button class="bg-green-900 hover:bg-green-800 py-2 rounded-sm font-medium text-white duration-300 cursor-pointer" type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div class="bg-linear-to-br from-green-950 via-green-900 to-green-950 text-white">
+        <div class="flex max-sm:flex-col items-center gap-4 mx-auto max-xl:px-6 py-16 max-w-7xl">
+            <img class="w-32" src="/images/logo.png" loading="lazy">
+            <p class="sm:py-2 sm:pl-4 sm:border-gray-200 sm:border-l-2 text-sm text-center">&copy; 2025 Aquila Securitizadora. Todos os direitos reservados</p>
+            <div class="flex items-center gap-4 sm:ml-auto">
+                <a href="https://api.whatsapp.com/send?phone=5519998998995" target="_blank">
+                    <svg class="size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z" fill="#e0e0e0"></path>
+                        </g>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/aquilasecuritizadora" target="_blank">
+                    <svg class="size-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/aquilasecuritizadora" target="_blank">
+                    <svg class="size-6" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" viewBox="0 0 24 24">
+                        <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("alpine:init", () => {
+        Alpine.data("alpine", () => ({
+
+            loading: false,
+            sidebar: false,
+            model: false,
+            benefits: [
+                {
+                    title: "Negocie melhores condições com seus fornecedores pagando à vista",
+                    description: "Com a antecipação de recebíveis você troca taxa por desconto na compra com seus fornecedores",
+                    image: "images/blog/1.jpg",
+                },
+                {
+                    title: "Venda a prazo e receba a vista",
+                    description: "Com a antecipação você troca o prazo por capital imediato e sem riscos, permitindo o cumprimento das obrigações financeiras da sua empresa",
+                    image: "images/blog/2.jpg",
+                },
+                {
+                    title: "Sem necessidade de endividamento",
+                    description: "A antecipação de recebíveis permite você capitalizar a sua empresa com um recurso que já é seu, sem gerar endividamento, reduzindo a dependência dos bancos",
+                    image: "images/blog/3.jpg",
+                },
+            ],
+            solutions: [
+                {
+                    title: "Duplicatas",
+                    description: "Proporcione à sua empresa liquidez imediata e a possibilidade de aproveitar oportunidades de crescimento sem comprometer o fluxo de caixa",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M240-280h280v-80H240v80Zm400 0h80v-400h-80v400ZM240-440h280v-80H240v80Zm0-160h280v-80H240v80Zm-80 480q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm0 0v-560 560Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    title: "Cheques",
+                    description: "Transforme cheques pré-datados em capital de giro imediato, com segurança e agilidade, acelerando o processo de cobrança e impulsionando o seu negócio",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M560-440q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM280-320q-33 0-56.5-23.5T200-400v-320q0-33 23.5-56.5T280-800h560q33 0 56.5 23.5T920-720v320q0 33-23.5 56.5T840-320H280Zm80-80h400q0-33 23.5-56.5T840-480v-160q-33 0-56.5-23.5T760-720H360q0 33-23.5 56.5T280-640v160q33 0 56.5 23.5T360-400Zm440 240H120q-33 0-56.5-23.5T40-240v-440h80v440h680v80ZM280-400v-320 320Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    title: "Operações estruturadas",
+                    description: "Criamos soluções financeiras personalizadas, desenhadas para atender às necessidades específicas de crédito por sua empresa, com flexibilidade e segurança",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="m234-480-12-60q-12-5-22.5-10.5T178-564l-58 18-40-68 46-40q-2-13-2-26t2-26l-46-40 40-68 58 18q11-8 21.5-13.5T222-820l12-60h80l12 60q12 5 22.5 10.5T370-796l58-18 40 68-46 40q2 13 2 26t-2 26l46 40-40 68-58-18q-11 8-21.5 13.5T326-540l-12 60h-80Zm40-120q33 0 56.5-23.5T354-680q0-33-23.5-56.5T274-760q-33 0-56.5 23.5T194-680q0 33 23.5 56.5T274-600ZM592-40l-18-84q-17-6-31.5-14.5T514-158l-80 26-56-96 64-56q-2-18-2-36t2-36l-64-56 56-96 80 26q14-11 28.5-19.5T574-516l18-84h112l18 84q17 6 31.5 14.5T782-482l80-26 56 96-64 56q2 18 2 36t-2 36l64 56-56 96-80-26q-14 11-28.5 19.5T722-124l-18 84H592Zm56-160q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    title: "Contratos",
+                    description: "Antecipamos contratos de prestação de serviço ou fornecimento, convertendo recebíveis futuros em capital imediato, com agilidade no processo",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M360-600v-80h360v80H360Zm0 120v-80h360v80H360Zm120 320H200h280Zm0 80H240q-50 0-85-35t-35-85v-120h120v-560h600v361q-20-2-40.5 1.5T760-505v-295H320v480h240l-80 80H200v40q0 17 11.5 28.5T240-160h240v80Zm80 0v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T903-300L683-80H560Zm300-263-37-37 37 37ZM620-140h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/>
+                        </svg>
+                    `,
+                },
+            ],
+            steps: [
+                {
+                    description: "Analisamos seus recebíveis e elegibilidade",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M400-320q100 0 170-70t70-170q0-100-70-170t-170-70q-100 0-170 70t-70 170q0 100 70 170t170 70Zm-40-120v-280h80v280h-80Zm-140 0v-200h80v200h-80Zm280 0v-160h80v160h-80ZM824-80 597-307q-41 32-91 49.5T400-240q-134 0-227-93T80-560q0-134 93-227t227-93q134 0 227 93t93 227q0 56-17.5 106T653-363l227 227-56 56Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    description: "Definimos a melhor taxa e condições para suas necessidades",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M300-520q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T360-660q0-25-17.5-42.5T300-720q-25 0-42.5 17.5T240-660q0 25 17.5 42.5T300-600Zm360 440q-58 0-99-41t-41-99q0-58 41-99t99-41q58 0 99 41t41 99q0 58-41 99t-99 41Zm0-80q25 0 42.5-17.5T720-300q0-25-17.5-42.5T660-360q-25 0-42.5 17.5T600-300q0 25 17.5 42.5T660-240Zm-444 80-56-56 584-584 56 56-584 584Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    description: "Você recebe o dinheiro rápido e com segurança",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M444-200h70v-50q50-9 86-39t36-89q0-42-24-77t-96-61q-60-20-83-35t-23-41q0-26 18.5-41t53.5-15q32 0 50 15.5t26 38.5l64-26q-11-35-40.5-61T516-710v-50h-70v50q-50 11-78 44t-28 74q0 47 27.5 76t86.5 50q63 23 87.5 41t24.5 47q0 33-23.5 48.5T486-314q-33 0-58.5-20.5T390-396l-66 26q14 48 43.5 77.5T444-252v52Zm36 120q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                        </svg>
+                    `,
+                },
+                {
+                    description: "Seu fluxo de caixa fica equilibrado, proporcionando recursos para o crescimento da sua empresa",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#FFFFFF">
+                            <path d="M320-414v-306h120v306l-60-56-60 56Zm200 60v-526h120v406L520-354ZM120-216v-344h120v224L120-216Zm0 98 258-258 142 122 224-224h-64v-80h200v200h-80v-64L524-146 382-268 232-118H120Z"/>
+                        </svg>
+                    `,
+                },
+            ],
+            credits: [
+                {
+                    title: "Crédito para Pequenas Empresas",
+                    description: "As pequenas empresas são o motor da economia, mas frequentemente enfrentam desafios para acessar crédito de forma rápida e flexível. A Aquila Securitizadora oferece soluções financeiras personalizadas que atendem às necessidades específicas de cada negócio, incluindo aqueles com dificuldades de acesso a linhas de crédito tradicionais",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                        </svg>
+                    `
+                },
+                {
+                    title: "Empresas com Restrição de Crédito",
+                    description: "Nós entendemos que dificuldades financeiras podem afetar o acesso a crédito, principalmente quando o nome da empresa está negativado. Mas isso não significa que sua empresa precisa parar de crescer. Oferecemos soluções para empresas com restrição de crédito, com base em recebíveis, contratos e outras garantias que vão além da análise de crédito tradicional",
+                    svg: `
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                        </svg>
+                    `
+                },
+            ],
+
+            async submitForm(event) {
+                this.loading = true
+                const form = event.target
+                const data = new FormData(form)
+
+                try {
+                    await fetch("https://script.google.com/macros/s/AKfycbytCYREJVHyg-R3ByoX-yeKoYFnPNiLShAOjBwFdgsFLNFWRQQsMIqrrTRQNbc6cdu-/exec", {
+                        method: "POST",
+                        body: data,
+                    })
+                } catch (error) {
+                    alert("Ocorreu um erro ao enviar. Tente novamente.")
+                } finally {
+                    this.loading = false
+                }
+            },
+
+        }))
+    })
+    </script>
+
+    </body>
 </html>

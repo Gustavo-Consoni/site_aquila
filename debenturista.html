@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="antialiased scroll-smooth" lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/images/favicon.png" type="image/png">
+        <title>Aquila Securitizadora</title>
+        <!-- Tailwindcss -->
+        <link href="src/output.css" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
+        <!-- AlpineJS -->
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15/dist/cdn.min.js"></script>
+        <style>
+            * {
+                font-family: "Inter", sans-serif;
+            }
+            [x-cloak] {
+                display: none !important;
+            }
+        </style>
+    </head>
+    <body class="bg-gray-100" x-data="alpine">
+
+        <div class="bg-white mx-auto p-8 max-w-5xl h-screen">
+            <div class="space-y-2">
+                <p class="font-semibold text-gray-900 text-2xl">Comunicação aos Debenturistas</p>
+                <p class="text-gray-600">Informamos que este portal passa a ser o meio oficial de comunicação entre a emissora e os debenturistas, conforme previsto na Primeira Emissão de debentures da Aquila Securitizadora, devidamente registrada na junta comercial do estado de São Paulo. Todas as informações relevantes, comunicados, avisos, documentos, relatórios e demais conteúdos de interesse dos debenturistas serão disponibilizados exclusivamente por meio deste canal, bem como pelos endereços eletrônicos indicados no Boletim de Subscrição da respectiva debênture. Recomendamos que todos os debenturistas acompanhem periodicamente este portal para garantir o recebimento de atualizações e informações importantes relacionadas à emissão.</p>
+            </div>
+            <template x-for="row in rows">
+                <div>
+                    <div class="my-8 border-gray-200 border-b"></div>
+                    <p class="font-semibold text-gray-900 text-lg" x-text="row.Comunicado"></p>
+                    <p class="mt-2 text-gray-600" x-text="row.Mensagem"></p>
+                    <p class="flex items-center gap-2 mt-4">
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                            <path d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z" />
+                            <path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="font-medium text-gray-900 text-sm" x-text="row.Data"></span>
+                    </p>
+                </div>
+            </template>
+        </div>
+
+        <script>
+            document.addEventListener("alpine:init", () => {
+                Alpine.data("alpine", () => ({
+                    rows: [],
+
+                    init() {
+                        this.loadSheet()
+                    },
+
+                    async loadSheet() {
+                        const url = "https://docs.google.com/spreadsheets/d/1c3ZnCUYlbVOVacL_kjaIoQzntFAy1JqwMYsy27-XyYk/gviz/tq?tqx=out:json"
+                        const res = await fetch(url)
+                        let text = await res.text()
+                        text = text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1)
+                        const data = JSON.parse(text)
+                        const rowsRaw = data.table.rows
+                        const headers = rowsRaw[0].c.filter(col => col?.v).map(col => col.v)
+                        const rows = rowsRaw.slice(1).map(r => {
+                            const values = r.c.map(col => col?.v || "")
+                            let obj = {}
+                            headers.forEach((header, i) => {
+                                obj[header] = values[i] || ""
+                            })
+                            return obj
+                        })
+                        this.rows = rows
+                    },
+
+                }))
+            })
+        </script>
+
+    </body>
+</html>
