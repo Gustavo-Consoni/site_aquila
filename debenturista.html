@@ -1,60 +1,89 @@
 <!DOCTYPE html>
 <html class="antialiased scroll-smooth" lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="/images/favicon.png" type="image/png">
-        <title>Aquila Securitizadora</title>
-        <!-- Tailwindcss -->
-        <link href="src/output.css" rel="stylesheet">
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
-        <!-- AlpineJS -->
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15/dist/cdn.min.js"></script>
-        <style>
-            * {
-                font-family: "Inter", sans-serif;
-            }
-            [x-cloak] {
-                display: none !important;
-            }
-        </style>
-    </head>
-    <body class="bg-gray-100" x-data="alpine">
-
-        <div class="bg-white mx-auto p-8 max-w-5xl h-screen">
-            <div class="space-y-2">
-                <p class="font-semibold text-gray-900 text-2xl">Comunicação aos Debenturistas</p>
-                <p class="text-gray-600">Informamos que este portal passa a ser o meio oficial de comunicação entre a emissora e os debenturistas, conforme previsto na Primeira Emissão de debentures da Aquila Securitizadora, devidamente registrada na junta comercial do estado de São Paulo. Todas as informações relevantes, comunicados, avisos, documentos, relatórios e demais conteúdos de interesse dos debenturistas serão disponibilizados exclusivamente por meio deste canal, bem como pelos endereços eletrônicos indicados no Boletim de Subscrição da respectiva debênture. Recomendamos que todos os debenturistas acompanhem periodicamente este portal para garantir o recebimento de atualizações e informações importantes relacionadas à emissão.</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comunicação oficial aos debenturistas da Aquila Securitizadora. Comunicados, avisos e informações relevantes da emissão.">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <title>Comunicação aos Debenturistas | Aquila Securitizadora</title>
+    <link href="src/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.12/dist/cdn.min.js"></script>
+</head>
+<body class="flex flex-col bg-gray-50 min-h-svh text-gray-600" x-data="alpine">
+    <header class="top-0 z-50 fixed inset-x-0 bg-green-950/90 shadow-green-950/20 shadow-lg backdrop-blur-md">
+        <nav class="flex justify-between items-center mx-auto px-8 max-w-7xl h-16">
+            <a href="/" class="shrink-0">
+                <img class="w-32" src="/images/logo.png" alt="Aquila Securitizadora">
+            </a>
+            <div class="flex items-center gap-4 text-sm">
+                <a href="/" class="hover:bg-white/10 px-4 py-2 border border-white/25 rounded-full font-medium text-white transition-colors duration-200">Voltar ao site</a>
+                <a href="https://iwbarecebiveis.wba.com.br" class="hidden sm:block bg-white hover:bg-emerald-50 px-4 py-2 rounded-full font-semibold text-green-950 transition-colors duration-200">Portal do Cedente</a>
             </div>
-            <template x-for="row in rows">
-                <div>
-                    <div class="my-8 border-gray-200 border-b"></div>
-                    <p class="font-semibold text-gray-900 text-lg" x-text="row.Comunicado"></p>
-                    <p class="mt-2 text-gray-600" x-text="row.Mensagem"></p>
-                    <p class="flex items-center gap-2 mt-4">
-                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-                            <path d="M5.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H6a.75.75 0 0 1-.75-.75V12ZM6 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H6ZM7.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H8a.75.75 0 0 1-.75-.75V12ZM8 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H8ZM9.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V10ZM10 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H10ZM9.25 14a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H10a.75.75 0 0 1-.75-.75V14ZM12 9.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V10a.75.75 0 0 0-.75-.75H12ZM11.25 12a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H12a.75.75 0 0 1-.75-.75V12ZM12 13.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V14a.75.75 0 0 0-.75-.75H12ZM13.25 10a.75.75 0 0 1 .75-.75h.01a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75H14a.75.75 0 0 1-.75-.75V10ZM14 11.25a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 0 0 .75-.75V12a.75.75 0 0 0-.75-.75H14Z" />
-                            <path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" />
-                        </svg>
-                        <span class="font-medium text-gray-900 text-sm" x-text="row.Data"></span>
-                    </p>
+        </nav>
+    </header>
+
+    <section class="bg-linear-to-br from-green-950 via-green-900 to-green-950 pt-32 pb-16">
+        <div class="mx-auto px-8 max-w-7xl">
+            <p class="mb-4 font-semibold text-emerald-300 text-sm uppercase tracking-widest">Debenturistas</p>
+            <h1 class="mb-8 font-bold text-white text-3xl sm:text-4xl tracking-tight">Comunicação aos Debenturistas</h1>
+            <p class="max-w-4xl text-gray-300 leading-relaxed">Informamos que este portal passa a ser o meio oficial de comunicação entre a emissora e os debenturistas, conforme previsto na Primeira Emissão de debêntures da Aquila Securitizadora, devidamente registrada na junta comercial do estado de São Paulo. Todas as informações relevantes, comunicados, avisos, documentos, relatórios e demais conteúdos de interesse dos debenturistas serão disponibilizados exclusivamente por meio deste canal, bem como pelos endereços eletrônicos indicados no Boletim de Subscrição da respectiva debênture. Recomendamos que todos os debenturistas acompanhem periodicamente este portal para garantir o recebimento de atualizações e informações importantes relacionadas à emissão.</p>
+        </div>
+    </section>
+
+    <main class="flex-1 mx-auto px-8 py-16 w-full max-w-7xl">
+        <div x-show="loading" class="space-y-8" x-cloak>
+            <template x-for="i in 3">
+                <div class="bg-white p-8 rounded-2xl ring-1 ring-gray-200/80 animate-pulse">
+                    <div class="bg-gray-200 mb-4 rounded w-1/3 h-4"></div>
+                    <div class="bg-gray-100 mb-2 rounded w-full h-4"></div>
+                    <div class="bg-gray-100 rounded w-2/3 h-4"></div>
                 </div>
             </template>
         </div>
 
-        <script>
-            document.addEventListener("alpine:init", () => {
-                Alpine.data("alpine", () => ({
-                    rows: [],
+        <div x-show="!loading && rows.length === 0" class="bg-white p-16 rounded-2xl ring-1 ring-gray-200/80 text-center" x-cloak>
+            <p class="font-semibold text-gray-900 text-lg">Nenhum comunicado disponível</p>
+            <p class="mt-2 text-gray-500 text-sm">Quando houver novos comunicados, eles serão publicados aqui.</p>
+        </div>
 
-                    init() {
-                        this.loadSheet()
-                    },
+        <div class="space-y-8">
+            <template x-for="row in rows">
+                <article class="bg-white shadow-sm p-8 rounded-2xl ring-1 ring-gray-200/80">
+                    <h2 class="mb-4 font-semibold text-gray-900 text-lg" x-text="row.Comunicado"></h2>
+                    <p class="text-gray-600 leading-relaxed" x-text="row.Mensagem"></p>
+                    <p class="inline-flex items-center gap-2 bg-emerald-50 mt-4 px-4 py-2 rounded-full ring-1 ring-emerald-200 font-medium text-emerald-700 text-xs whitespace-nowrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-4 shrink-0">
+                            <path fill-rule="evenodd" d="M5.75 2a.75.75 0 0 1 .75.75V4h7V2.75a.75.75 0 0 1 1.5 0V4h.25A2.75 2.75 0 0 1 18 6.75v8.5A2.75 2.75 0 0 1 15.25 18H4.75A2.75 2.75 0 0 1 2 15.25v-8.5A2.75 2.75 0 0 1 4.75 4H5V2.75A.75.75 0 0 1 5.75 2Zm-1 5.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-6.5c0-.69-.56-1.25-1.25-1.25H4.75Z" clip-rule="evenodd" />
+                        </svg>
+                        <span x-text="row.Data"></span>
+                    </p>
+                </article>
+            </template>
+        </div>
+    </main>
 
-                    async loadSheet() {
+    <footer class="bg-linear-to-br from-green-950 via-green-900 to-green-950 text-white">
+        <div class="flex sm:flex-row flex-col justify-between items-center gap-4 mx-auto px-8 py-8 max-w-7xl">
+            <img class="w-32" src="/images/logo.png" alt="Aquila Securitizadora" loading="lazy">
+            <p class="text-gray-300 text-sm">&copy; 2025 Aquila Securitizadora. Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("alpine:init", () => {
+            Alpine.data("alpine", () => ({
+                rows: [],
+                loading: true,
+
+                init() {
+                    this.loadSheet()
+                },
+
+                async loadSheet() {
+                    try {
                         const url = "https://docs.google.com/spreadsheets/d/1c3ZnCUYlbVOVacL_kjaIoQzntFAy1JqwMYsy27-XyYk/gviz/tq?tqx=out:json"
                         const res = await fetch(url)
                         let text = await res.text()
@@ -71,11 +100,14 @@
                             return obj
                         })
                         this.rows = rows
-                    },
+                    } finally {
+                        this.loading = false
+                    }
+                },
 
-                }))
-            })
-        </script>
+            }))
+        })
+    </script>
 
-    </body>
+</body>
 </html>
